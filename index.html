@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tent Defender: Survive the Storm</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <canvas id="contourCanvas"></canvas>
+
+  <!-- Header -->
+  <header class="hud-top">
+    <div class="brand">
+      <h1>Tent Defender</h1>
+      <span class="subtitle">Survive the Storm</span>
+    </div>
+
+    <div class="weather-gauge">
+      <div class="dial"><img id="weatherIcon" src="assets/sun.svg" alt="weather"></div>
+      <div class="info">
+        <span class="label" id="weatherLabel">Sunny</span>
+        <span class="next">Next: <b id="weatherNext">Cloudy</b></span>
+      </div>
+    </div>
+
+    <div class="day-tracker">
+      Day <span id="dayNum">1</span> / <span id="dayTotal">5</span>
+      <div class="day-dots" id="dayDots"></div>
+    </div>
+  </header>
+
+  <!-- Stat bars -->
+  <section class="stat-panel">
+    <div class="stat">
+      <div class="stat-head"><span>Safety</span><b id="safetyVal">100</b></div>
+      <div class="stat-track"><div class="stat-fill safety" id="safetyFill"></div></div>
+    </div>
+    <div class="stat">
+      <div class="stat-head"><span>Comfort</span><b id="comfortVal">100</b></div>
+      <div class="stat-track"><div class="stat-fill comfort" id="comfortFill"></div></div>
+    </div>
+    <div class="stat">
+      <div class="stat-head"><span>Battery</span><b id="batteryVal">100</b></div>
+      <div class="stat-track"><div class="stat-fill battery" id="batteryFill"></div></div>
+    </div>
+    <div class="stat">
+      <div class="stat-head"><span>Tent Durability</span><b id="durabilityVal">100</b></div>
+      <div class="stat-track"><div class="stat-fill durability" id="durabilityFill"></div></div>
+    </div>
+  </section>
+
+  <!-- Scene -->
+  <main class="scene-wrap">
+    <canvas id="sceneCanvas"></canvas>
+    <div class="toast" id="toast"></div>
+  </main>
+
+  <!-- Controls -->
+  <footer class="control-panel">
+    <button class="feature-btn" id="btnWaterproof" data-feature="waterproof">
+      <div class="icon-wrap"><img src="assets/rain.svg" alt=""></div>
+      <div class="btn-text">
+        <span class="btn-title">Waterproof</span>
+        <span class="btn-state">Off</span>
+      </div>
+      <div class="switch-led"></div>
+    </button>
+
+    <button class="feature-btn" id="btnStakes" data-feature="stakes">
+      <div class="icon-wrap"><img src="assets/tent.svg" alt=""></div>
+      <div class="btn-text">
+        <span class="btn-title">Strong Stakes</span>
+        <span class="btn-state">Off</span>
+      </div>
+      <div class="switch-led"></div>
+    </button>
+
+    <button class="feature-btn" id="btnFan" data-feature="solarFan">
+      <div class="icon-wrap"><img src="assets/sun.svg" alt=""></div>
+      <div class="btn-text">
+        <span class="btn-title">Solar Fan</span>
+        <span class="btn-state">Off</span>
+      </div>
+      <div class="switch-led"></div>
+    </button>
+
+    <div class="score-readout">Score<br><b id="scoreVal">0</b></div>
+  </footer>
+
+  <!-- Intro overlay -->
+  <div class="overlay show" id="introOverlay">
+    <div class="overlay-card intro-card">
+      <h2>Tent Defender</h2>
+      <p>Weather turns fast in the backcountry. Toggle your tent's smart features at the right moment to keep your camp safe, comfortable, and powered through <b id="introDays">5</b> days.</p>
+      <ul>
+        <li>Waterproof Fabric — activate before rain or storms</li>
+        <li>Strong Stakes — activate before wind or storms</li>
+        <li>Solar Fan — run it in sun to cool camp &amp; charge battery</li>
+      </ul>
+      <button class="restart-btn" id="startBtn">Start Camping</button>
+    </div>
+  </div>
+
+  <!-- End overlay -->
+  <div class="overlay" id="endOverlay">
+    <div class="overlay-card" id="endCard">
+      <h2 id="endTitle">Camp Survived</h2>
+      <div class="final-score" id="finalScore">0</div>
+      <div class="rank" id="rank">Rank: Novice Camper</div>
+      <p id="endMessage">You made it through the trip.</p>
+      <button class="restart-btn" id="restartBtn">Camp Again</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="particles.js"></script>
+<script src="weather.js"></script>
+<script src="ui.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
